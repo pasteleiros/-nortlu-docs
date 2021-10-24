@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "c54bfc34-825f-4b84-b567-4975332eace9",
+		"name": "nortlu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pedido",
+			"item": [
+				{
+					"name": "1 - Lista pedido por status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pedidos/listar?status=CANCELADO",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "CANCELADO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Buscar pedido por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pedidos/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Salvar pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"usuario\": {\n            \"id\": 8,\n            \"nome\": \"Uniliva\",\n            \"cpf\": \"0980057160\",\n            \"email\": \"uni@teste.com\",\n            \"telefone\": \"36365985\",\n            \"enderecos\": [\n                {\n                    \"id\": 5,\n                    \"logradouro\": \"Rua Pedrinópolis\",\n                    \"numero\": 259,\n                    \"bairro\": \"Jardim São Gabriel\",\n                    \"cidade\": \"São Paulo\",\n                    \"cep\": \"03940030\"\n                }\n            ]\n        },\n    \"formaPagamento\": \"CREDITO\",\n    \"statusPedido\": \"SOLICITADO\",\n    \"valorTotal\": 25.55,\n    \"itens\": [\n        {\n            \"id\": 1,\n            \"nome\": \"uaiii\",\n            \"descricao\": \"Pizza quatro queijos simple\",\n            \"categoria\": {\n                \"id\": 1,\n                \"descricao\": \"Pizzas\"\n            },\n            \"valor\": 33.00,\n            \"foto\": \"https://img.estadao.com.br/fotos/crop/1200x900/resources/jpg/8/3/1473369914238.jpg\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Cancelar pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 14,\n    \"itens\": [\n        {\n            \"id\": 1,\n            \"nome\": \"uaiii\",\n            \"descricao\": \"Pizza quatro queijos simple\",\n            \"categoria\": {\n                \"id\": 1,\n                \"descricao\": \"Pizzas\"\n            },\n            \"valor\": 33.0,\n            \"foto\": \"https://img.estadao.com.br/fotos/crop/1200x900/resources/jpg/8/3/1473369914238.jpg\"\n        }\n    ],\n    \"usuario\": {\n        \"id\": 8,\n        \"nome\": \"Uniliva\",\n        \"cpf\": \"0980057160\",\n        \"email\": \"uni@teste.com\",\n        \"telefone\": \"36365985\",\n        \"enderecos\": [\n            {\n                \"id\": 5,\n                \"logradouro\": \"Rua Pedrinópolis\",\n                \"numero\": 259,\n                \"bairro\": \"Jardim São Gabriel\",\n                \"cidade\": \"São Paulo\",\n                \"cep\": \"03940030\"\n            }\n        ]\n    },\n    \"formaPagamento\": \"CREDITO\",\n    \"statusPedido\": \"SOLICITADO\",\n    \"valorTotal\": 25.55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pedidos/cancelar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pedidos",
+								"cancelar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "produtos",
+			"item": [
+				{
+					"name": "1 - LIstar produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produtos/listar?ativo=false",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produtos",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "ativo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Buscar por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produtos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produtos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\" : \"Pizza quartro queijos\",\n    \"descricao\" : \"Pizza quatro queijos simple\",\n    \"categoria\" : {\n        \"id\": 1,\n        \"descricao\": \"Massas\"\n    },\n    \"valor\" : 33.00,\n    \"foto\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produtos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"nome\": \"Pizza quartro queijos\",\n    \"descricao\": \"Pizza quatro queijos simple\",\n    \"categoria\": {\n        \"id\": 1,\n        \"descricao\": \"Pizzas\"\n    },\n    \"valor\": 33.0,\n    \"ativo\": true,\n    \"foto\": \"https://img.estadao.com.br/fotos/crop/1200x900/resources/jpg/8/3/1473369914238.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/produtos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produtos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Deletar logico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produtos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produtos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoria",
+			"item": [
+				{
+					"name": "1 - Listar categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categorias/listar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Buscar por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categorias/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Criar categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Feira\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Atualizar Categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"descricao\": \"Frutas frescas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "endereço",
+			"item": [
+				{
+					"name": "1 - Buscar por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enderecos/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Salvar novo endereço",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"Rua Paineira\",\n    \"numero\": 134,\n    \"bairro\": \"Jardim São Gabriel\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"03940030\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Atualizar endereço",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"logradouro\": \"Rua Paineira 2\",\n    \"numero\": 134,\n    \"bairro\": \"Jardim São Gabriel\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"03940030\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enderecos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "1 - Buscar usuario por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuarios/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Salvar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Uniliva\",\n    \"cpf\": \"0980057160\",\n    \"email\": \"uni@teste.com\",\n    \"telefone\": \"36365985\",\n    \"enderecos\": [\n        {\n            \"id\": 5,\n            \"logradouro\": \"Rua Pedrinópolis\",\n            \"numero\": 259,\n            \"bairro\": \"Jardim São Gabriel\",\n            \"cidade\": \"São Paulo\",\n            \"cep\": \"03940030\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Atualizar usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Uniliva\",\n    \"cpf\": \"0980057160\",\n    \"email\": \"uni@teste.com\",\n    \"telefone\": \"36365985\",\n    \"enderecos\": [\n        {\n            \"id\": 1,\n            \"logradouro\": \"Rua Pedrinópolis\",\n            \"numero\": 259,\n            \"bairro\": \"Jardim São Gabriel\",\n            \"cidade\": \"São Paulo\",\n            \"cep\": \"03940030\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
